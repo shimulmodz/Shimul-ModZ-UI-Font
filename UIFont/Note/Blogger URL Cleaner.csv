@@ -1,0 +1,25 @@
+<script>
+// ===========================================================
+// 🚀 Blogger URL Cleaner (Ultra-Safe + Smooth) - by Shimul ModZ
+// -----------------------------------------------------------
+// ✅ Removes "?m=1" or "?m=0" instantly for cleaner Blogger URLs
+// ✅ 100% SEO-Safe (Google always respects the canonical tag)
+// ✅ Runs lightning-fast, smooth & invisible to visitors
+// ===========================================================
+(function() {
+  try {
+    const cleanURL = new URL(window.location.href);
+
+    // Remove only the Blogger mobile parameter (?m=1 / ?m=0)
+    if (cleanURL.searchParams.has("m")) {
+      cleanURL.searchParams.delete("m");
+
+      // Instantly update the URL bar without reload
+      window.history.replaceState(null, document.title, cleanURL.href);
+    }
+  } catch (err) {
+    // Fail silently to avoid breaking old browsers
+    console.warn("Blogger URL Cleaner Error:", err);
+  }
+})();
+</script>
