@@ -1,87 +1,822 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShimulModZ UI Font Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShimulModZ UI Font — Live Preview & Open Source Setup</title>
+
+  <!-- preconnect + preload for faster font delivery -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff" as="font" type="font/woff" crossorigin>
+
   <style>
-    /* ✅ ShimulModZUIFont via jsDelivr CDN */
+    /* --------------------------------------------------
+       IMPORTANT: If you add a WOFF2 file to the repo,
+       replace / add the woff2 src and uncomment the woff2 line below
+       -------------------------------------------------- */
     @font-face {
       font-family: 'ShimulModZUIFont';
+      /* Preferred: woff2 (commented out until you add a .woff2 file) */
+      /* src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff2') format('woff2'), */
       src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff') format('woff');
-      font-weight: 400;
+      font-weight: 100 900;
       font-style: normal;
       font-display: swap;
     }
 
-    /* ✅ Global Default Font Usage */
-    html, body {
-      font-family: 'ShimulModZUIFont', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    :root {
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #7c3aed;
+      --accent-light: rgba(124, 58, 237, 0.1);
+      --text: #0f172a;
+      --border: #e6e9ef;
+      --shadow: rgba(2, 6, 23, 0.06);
+      --dark-bg: #0b1220;
+      --dark-card: #1a2235;
+      --dark-text: #e6eef8;
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #f9fafb;
-      color: #111827;
+    }
+
+    body {
+      font-family: 'ShimulModZUIFont', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
+      padding: 16px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    h1, h2 {
+    /* Header Styles */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .github-btn {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .github-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px var(--shadow);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 25px rgba(2, 6, 23, 0.1);
+    }
+
+    .card-title {
+      font-size: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Input Area */
+    textarea#typeInput {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 16px;
+      font-size: 16px;
+      resize: vertical;
+      font-family: inherit;
+      transition: var(--transition);
+      margin-bottom: 16px;
+    }
+
+    textarea#typeInput:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    /* Button Styles */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: 0;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button.ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .control-label {
+      font-size: 14px;
+      color: var(--muted);
+      min-width: 100px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    select, input[type="number"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      flex: 1;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Preview Area */
+    .preview-container {
+      position: relative;
+    }
+
+    .preview {
+      min-height: 200px;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px dashed var(--border);
+      overflow: auto;
+      transition: var(--transition);
+    }
+
+    .preview.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .preview .meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .preview-text {
+      font-size: 28px;
+      line-height: 1.5;
+    }
+
+    /* Code Snippets */
+    pre.snip {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 16px;
+      border-radius: 8px;
+      overflow: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .license {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Details/Accordion */
+    details {
+      margin-top: 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 16px;
+      background: var(--card);
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    summary:hover {
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    details[open] summary {
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .details-content {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .github-btn {
+        align-self: stretch;
+        justify-content: center;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn-group button {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .control-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .control-label {
+        min-width: auto;
+      }
+
+      input[type="range"], select, input[type="number"] {
+        width: 100%;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .preview-text {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center {
       text-align: center;
-      margin-bottom: 1rem;
     }
 
-    .test-box {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-bottom: 2rem;
+    .mt-1 {
+      margin-top: 8px;
+    }
+
+    .mt-2 {
+      margin-top: 16px;
+    }
+
+    .mb-1 {
+      margin-bottom: 8px;
+    }
+
+    .mb-2 {
+      margin-bottom: 16px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-2 {
+      gap: 8px;
+    }
+
+    .gap-4 {
+      gap: 16px;
+    }
+
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --muted: #94a3b8;
+        --text: #f1f5f9;
+        --border: #334155;
+        --shadow: rgba(0, 0, 0, 0.2);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🔤 ShimulModZ UI Font Demo</h1>
-    <h2>বাংলা + English + Numbers + Symbols</h2>
+  <div class="wrap">
+    <header>
+      <div class="logo-section">
+        <div class="logo">SM</div>
+        <div>
+          <h1>ShimulModZ UI Font</h1>
+          <div class="sub">Live-typing preview + ready-to-use CSS & open-source setup guide</div>
+        </div>
+      </div>
+      <a href="https://github.com/shimulmodz/Shimul-ModZ-UI-Font" target="_blank" rel="noopener" class="github-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        View on GitHub
+      </a>
+    </header>
 
-    <div class="test-box">
-      <p>
-        অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ  
-        ক খ গ ঘ ঙ চ ছ জ ঝ ঞ  
-        ট ঠ ড ঢ ণ ত থ দ ধ ন  
-        প ফ ব ভ ম য র ল শ ষ স হ  
-        ক্ষ ং ঃ ঁ
-      </p>
+    <div class="grid">
+      <!-- Input Section -->
+      <div class="card">
+        <div class="card-title">
+          <strong>Type here — লাইভ প্রিভিউ দেখুন</strong>
+          <div style="font-size: 14px; color: var(--muted);">Font: <em>ShimulModZUIFont</em></div>
+        </div>
 
-      <p>
-        কা কি কী কু কূ কৃ কে কৈ কো কৌ  
-        ক্র ক্ল ক্স গ্র ঘ্র ত্র দ্ধ স্থ শ্র স্প্ল্যাশ
-      </p>
+        <textarea id="typeInput" placeholder="এখানে টাইপ করুন — mix of বাংলা + English + symbols"></textarea>
 
-      <p>
-        বাংলা ভাষা পরীক্ষার জন্য এই প্যারাগ্রাফে সব অক্ষর রাখা হয়েছে।  
-      </p>
+        <div class="btn-group">
+          <button id="btnBangla">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm6-8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>
+            বাংলা অক্ষর
+          </button>
+          <button id="btnEnglish" class="ghost">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm6-8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>
+            English alphabet
+          </button>
+          <button id="btnAll" class="ghost">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm6-8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>
+            All sample
+          </button>
+          <button id="btnClear" class="ghost">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
+            Clear
+          </button>
+        </div>
 
-      <p>
-        English alphabets:  
-        A B C D E F G H I J K L M  
-        N O P Q R S T U V W X Y Z  
-        a b c d e f g h i j k l m  
-        n o p q r s t u v w x y z
-      </p>
+        <div class="controls">
+          <div class="control-row">
+            <span class="control-label">Font size</span>
+            <input id="sizeRange" type="range" min="12" max="72" value="28">
+            <span id="sizeLabel" style="min-width: 50px; text-align: right;">28px</span>
+          </div>
 
-      <p>
-        Numbers & Symbols:  
-        ০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯  
-        0 1 2 3 4 5 6 7 8 9  
-        ! @ # $ % ^ & * ( ) - _ + = { } [ ] ; : ' " , . / < > ? | \
-      </p>
+          <div class="control-row">
+            <span class="control-label">Weight</span>
+            <select id="weightSelect">
+              <option value="100">100 (Thin)</option>
+              <option value="300">300 (Light)</option>
+              <option value="400" selected>400 (Regular)</option>
+              <option value="500">500 (Medium)</option>
+              <option value="700">700 (Bold)</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Background</span>
+            <div class="toggle-container">
+              <label class="toggle-switch">
+                <input id="bgToggle" type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <span>Dark preview</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Copy CSS</span>
+            <button id="copyCss">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+              </svg>
+              Copy @font-face
+            </button>
+            <button id="copyLink" class="ghost">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+              </svg>
+              Copy preload link
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview Section -->
+      <div class="card">
+        <div class="card-title">
+          <strong>Preview</strong>
+          <div class="meta">Font: ShimulModZUIFont</div>
+        </div>
+
+        <div class="preview-container">
+          <div id="preview" class="preview" aria-live="polite">
+            <div class="preview-meta">নমুনা — এইই ফন্ট দিয়ে টেক্সট দেখুন</div>
+            <div id="previewText" class="preview-text">
+অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ  
+ক খ গ ঘ ঙ চ ছ জ ঝ ঞ  
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <div class="meta mb-1">Character set snapshot</div>
+          <pre class="snip" id="charset">
+অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ
+ক খ গ ঘ ঙ চ ছ জ ঝ ঞ
+ট ঠ ড ঢ ণ ত থ দ ধ ন
+প ফ ব ভ ম য র ল শ ষ স হ
+ক্ষ ্‍ 
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+0 1 2 3 4 5 6 7 8 9
+! @ # $ % ^ & * ( ) - _ + = { } [ ] ; : ' " , . / < > ? | \
+          </pre>
+
+          <div class="footer">
+            <div class="license">License: <strong>SIL Open Font License</strong></div>
+            <div class="flex gap-2">
+              <button id="btnOpenReadme" class="ghost">README</button>
+              <a href="https://github.com/shimulmodz/Shimul-ModZ-UI-Font" target="_blank" class="github-btn" style="text-decoration: none;">
+                Open Repo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Snippets -->
+      <div class="card full-width">
+        <div class="card-title">
+          <strong>Usage examples (copy & paste)</strong>
+        </div>
+        
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <div class="meta mb-1">@font-face (recommended):</div>
+            <pre class="snip" id="cssSnippet">@font-face {
+  font-family: 'ShimulModZUIFont';
+  src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body { 
+  font-family: 'ShimulModZUIFont', system-ui, sans-serif; 
+}</pre>
+          </div>
+          
+          <div>
+            <div class="meta mb-1">Preload (place in &lt;head&gt;):</div>
+            <pre class="snip">&lt;link rel="preload" 
+  href="https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff" 
+  as="font" 
+  type="font/woff" 
+  crossorigin&gt;</pre>
+            
+            <div class="mt-2">
+              <div class="meta mb-1">CDN (jsDelivr):</div>
+              <a href="https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff" target="_blank" class="github-btn" style="display: inline-flex;">
+                Download .woff via jsDelivr
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- README + LICENSE (quick reference) -->
+    <details>
+      <summary>Open-source setup & README (quick)</summary>
+      <div class="details-content">
+        <h3>Repository recommended structure</h3>
+        <pre class="snip">/
+  README.md
+  LICENSE.txt   &lt;-- SIL OFL 1.1 recommended
+  UIFont/
+    ShimulModZUIFont.ttf
+    ShimulModZUIFont.woff
+    ShimulModZUIFont.woff2   &lt;-- generate & add for best results
+  demo/
+    index.html   &lt;-- this demo file
+</pre>
+
+        <h3>Generate WOFF2 (recommended) — quick commands</h3>
+        <div>
+          <p>Option A (fonttools):</p>
+          <pre class="snip">pip install fonttools brotli
+pyftsubset ShimulModZUIFont.ttf --flavor=woff2 --output-file=ShimulModZUIFont.woff2</pre>
+
+          <p>Option B (Google woff2):</p>
+          <pre class="snip"># build the tool then
+./woff2_compress ShimulModZUIFont.ttf
+# produces ShimulModZUIFont.woff2</pre>
+
+          <p>Option C (FontForge):</p>
+          <pre class="snip">fontforge -lang=ff -c 'Open($1); Generate($2)' ShimulModZUIFont.ttf ShimulModZUIFont.woff</pre>
+        </div>
+
+        <h3>License</h3>
+        <div>I recommend the <strong>SIL Open Font License 1.1</strong> (OFL) for fonts. Add <code>LICENSE.txt</code> with the full OFL text in repo root so other devs can use the font freely. Example short note for README:</div>
+        <pre class="snip">ShimulModZ UI Font
+Copyright (c) 2025 Shimul ModZ
+Licensed under the SIL Open Font License, Version 1.1
+See LICENSE.txt for details.</pre>
+
+        <h3>Tag a release for stable jsDelivr URLs</h3>
+        <div>Create a Git tag and push it:</div>
+        <pre class="snip">git tag v1.0.0
+git push origin v1.0.0
+
+// Then use versioned CDN URL:
+https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font@v1.0.0/UIFont/ShimulModZUIFont.woff</pre>
+
+        <h3>Troubleshooting</h3>
+        <ul>
+          <li>If font doesn't load: open DevTools &gt; Network — confirm font path returns 200 not 404.</li>
+          <li>Blob links won't work (eg: github.com/.../blob/...). Use raw or jsDelivr links.</li>
+          <li>Ensure file name exactly matches (case-sensitive on CDN).</li>
+          <li>Use <code>crossorigin</code> on preload &lt;link&gt;.</li>
+        </ul>
+      </div>
+    </details>
   </div>
+
+  <script>
+    // -- UI behavior --
+    const input = document.getElementById('typeInput');
+    const previewText = document.getElementById('previewText');
+    const preview = document.getElementById('preview');
+    const sizeRange = document.getElementById('sizeRange');
+    const sizeLabel = document.getElementById('sizeLabel');
+    const weightSelect = document.getElementById('weightSelect');
+    const bgToggle = document.getElementById('bgToggle');
+
+    // Default sample text (Bangla + English + numbers)
+    const defaultSample = `অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ\n\nক খ গ ঘ ঙ চ ছ জ ঝ ঞ\nট ঠ ড ঢ ণ ত থ দ ধ ন\nপ ফ ব ভ ম য র ল শ ষ স হ\n\nA B C D E F G H I J K L M N O P Q R S T U V W X Y Z\n0 1 2 3 4 5 6 7 8 9\n! @ # $ % ^ & * ( ) - _ + = { } [ ] ; : ' \" , . / < > ? | \\`;
+
+    // set initial value
+    input.value = defaultSample;
+    previewText.innerText = defaultSample;
+
+    function renderPreview(){
+      const text = input.value || defaultSample;
+      // preserve line breaks
+      previewText.innerHTML = text.replace(/\n/g, '<br>');
+    }
+
+    input.addEventListener('input', renderPreview);
+
+    sizeRange.addEventListener('input', ()=>{
+      const v = sizeRange.value;
+      sizeLabel.innerText = v + 'px';
+      previewText.style.fontSize = v + 'px';
+    });
+
+    weightSelect.addEventListener('change', ()=>{
+      previewText.style.fontWeight = weightSelect.value;
+    });
+
+    bgToggle.addEventListener('change', ()=>{
+      if(bgToggle.checked){
+        preview.classList.add('dark');
+      } else {
+        preview.classList.remove('dark');
+      }
+    });
+
+    document.getElementById('btnBangla').addEventListener('click', ()=>{
+      input.value = `অ আ ই ঈ উ ঊ ঋ এ ঐ ও ঔ\nক খ গ ঘ ঙ চ ছ জ ঝ ঞ\nট ঠ ড ঢ ণ ত থ দ ধ ন\nপ ফ ব ভ ম য র ল শ ষ স হ`;
+      renderPreview();
+    });
+    document.getElementById('btnEnglish').addEventListener('click', ()=>{
+      input.value = `A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\nabcdefghijklmnopqrstuvwxyz`;
+      renderPreview();
+    });
+    document.getElementById('btnAll').addEventListener('click', ()=>{
+      input.value = defaultSample;
+      renderPreview();
+    });
+    document.getElementById('btnClear').addEventListener('click', ()=>{ input.value=''; renderPreview(); });
+
+    // copy snippets
+    function copyText(t){
+      navigator.clipboard.writeText(t).then(()=>{
+        alert('Copied to clipboard');
+      }).catch(()=>{ alert('Copy failed — try selecting and copying manually'); });
+    }
+
+    document.getElementById('copyCss').addEventListener('click', ()=>{
+      const css = `@font-face {\n  font-family: 'ShimulModZUIFont';\n  /* If you add .woff2 to repo, prefer woff2 first */\n  /* src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff2') format('woff2'), */\n  src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff') format('woff');\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}\n\nbody { font-family: 'ShimulModZUIFont', system-ui, sans-serif; }`;
+      copyText(css);
+    });
+
+    document.getElementById('copyLink').addEventListener('click', ()=>{
+      const link = `<link rel=\"preload\" href=\"https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff\" as=\"font\" type=\"font/woff\" crossorigin>`;
+      copyText(link);
+    });
+
+    document.getElementById('btnOpenReadme').addEventListener('click', ()=>{
+      const details = document.querySelector('details');
+      details.open = true;
+      details.scrollIntoView({behavior: 'smooth'});
+    });
+  </script>
 </body>
 </html>
