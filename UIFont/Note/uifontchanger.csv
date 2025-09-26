@@ -1,0 +1,25 @@
+<style>
+/* 🌟 Shimul ModZ Powerful UI Font Injector 🌟
+   Instantly overrides all theme fonts with your custom font,
+   making the entire UI consistent, smooth, and stylish everywhere. */
+
+@font-face {
+  font-family: 'ShimulModZUIFont';
+  src: url('https://cdn.jsdelivr.net/gh/shimulmodz/Shimul-ModZ-UI-Font/UIFont/ShimulModZUIFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* ensures faster, smoother loading */
+}
+
+/* Global variable for easy management */
+:root {
+  --font-global: 'ShimulModZUIFont', monospace;
+}
+
+/* Force apply font to everything */
+*,
+*::before,
+*::after {
+  font-family: var(--font-global) !important;
+}
+</style>
