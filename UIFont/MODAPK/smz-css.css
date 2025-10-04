@@ -1,0 +1,497 @@
+/* 
+Mod App Info Box
+======================
+Shimul ModZ - sMz
+*/
+        
+        /* Main Container */
+        .mod-app-premium-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 1000px;
+            overflow: hidden;
+            animation: container-appear 0.8s ease-out;
+        }
+        
+        @keyframes container-appear {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Header Section */
+        .mod-app-premium-header {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            color: white;
+            padding: 2px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mod-app-premium-header::before {
+            content: &quot;&quot;;
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: header-shine 8s infinite linear;
+        }
+        
+        @keyframes header-shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .mod-app-premium-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+          color: yellow;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Information Grid */
+        .mod-app-premium-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            padding: 0;
+        }
+        
+        /* Information Box */
+        .mod-app-premium-box {
+            display: flex;
+            padding: 20px 30px;
+            border-bottom: 1px solid #f1f5f9;
+            border-right: 1px solid #f1f5f9;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mod-app-premium-box::before {
+            content: &quot;&quot;;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .mod-app-premium-box:hover::before {
+            left: 100%;
+        }
+        
+        .mod-app-premium-box:hover {
+            background-color: #faf9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.08);
+        }
+        
+        /* Icon Styles */
+        .mod-app-premium-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 20px;
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            flex-shrink: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f3ff;
+        }
+        
+        .mod-app-premium-icon-app {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22img%22%20viewBox%3D%220%200%2024%2024%22%20id%3D%22Android--Streamline-Simple-Icons%22%20height%3D%2224%22%20width%3D%2224%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%0A%20%20%3Cdesc%3E%0A%20%20%20%20Android%20Streamline%20Icon%3A%20https%3A%2F%2Fstreamlinehq.com%0A%20%20%3C%2Fdesc%3E%0A%20%20%3Ctitle%3EAndroid%3C%2Ftitle%3E%0A%20%20%3Cpath%20d%3D%22M18.4395%205.5586c-0.675%201.1664%20-1.352%202.3318%20-2.0274%203.498%20-0.0366%20-0.0155%20-0.0742%20-0.0286%20-0.1113%20-0.043%20-1.8249%20-0.6957%20-3.484%20-0.8%20-4.42%20-0.787%20-1.8551%200.0185%20-3.3544%200.4643%20-4.2597%200.8203%20-0.084%20-0.1494%20-1.7526%20-3.021%20-2.0215%20-3.4864a1.1451%201.1451%200%200%200%20-0.1406%20-0.1914c-0.3312%20-0.364%20-0.9054%20-0.4859%20-1.379%20-0.203%20-0.475%200.282%20-0.7136%200.9361%20-0.3886%201.5019%201.9466%203.3696%20-0.0966%20-0.2158%201.9473%203.3593%200.0172%200.031%20-0.4946%200.2642%20-1.3926%201.0177C2.8987%2012.176%200.452%2014.772%200%2018.9902h24c-0.119%20-1.1108%20-0.3686%20-2.099%20-0.7461%20-3.0683%20-0.7438%20-1.9118%20-1.8435%20-3.2928%20-2.7402%20-4.1836a12.1048%2012.1048%200%200%200%20-2.1309%20-1.6875c0.6594%20-1.122%201.312%20-2.2559%201.9649%20-3.3848%200.2077%20-0.3615%200.1886%20-0.7956%20-0.0079%20-1.1191a1.1001%201.1001%200%200%200%20-0.8515%20-0.5332c-0.5225%20-0.0536%20-0.9392%200.3128%20-1.0488%200.5449zm-0.0391%208.461c0.3944%200.5926%200.324%201.3306%20-0.1563%201.6503%20-0.4799%200.3197%20-1.188%200.0985%20-1.582%20-0.4941%20-0.3944%20-0.5927%20-0.324%20-1.3307%200.1563%20-1.6504%200.4727%20-0.315%201.1812%20-0.1086%201.582%200.4941zM7.207%2013.5273c0.4803%200.3197%200.5506%201.0577%200.1563%201.6504%20-0.394%200.5926%20-1.1038%200.8138%20-1.584%200.4941%20-0.48%20-0.3197%20-0.5503%20-1.0577%20-0.1563%20-1.6504%200.4008%20-0.6021%201.1087%20-0.8106%201.584%20-0.4941z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%0A%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-package {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M21%2016.5c0%20.38-.21.71-.53.88l-7.9%204.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.991.991%200%20013%2016.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9%204.44c.32.17.53.5.53.88v9zM12%204.15L6.04%207.5%2012%2010.85l5.96-3.35L12%204.15z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-version {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-6h2v6zm0-8h-2V7h2v2z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-updated {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M11.99%202C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208zm.5-13H11v6l5.25%203.15.75-1.23-4.5-2.67z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-publisher {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%2012c2.21%200%204-1.79%204-4s-1.79-4-4-4-4%201.79-4%204%201.79%204%204%204zm0%202c-2.67%200-8%201.34-8%204v2h16v-2c0-2.66-5.33-4-8-4z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-requirements {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M19%203H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2V5c0-1.1-.9-2-2-2zm-8%2014H7v-2h4v2zm3-4H7v-2h7v2zm3-4H7V7h10v2z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-category {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%202l-5.5%209h11L12%202zm0%203.84L13.93%209h-3.87L12%205.84zM17.5%2013c-2.49%200-4.5%202.01-4.5%204.5s2.01%204.5%204.5%204.5%204.5-2.01%204.5-4.5-2.01-4.5-4.5-4.5zm0%207c-1.38%200-2.5-1.12-2.5-2.5s1.12-2.5%202.5-2.5%202.5%201.12%202.5%202.5-1.12%202.5-2.5%202.5zM3%2021.5h8v-8H3v8zm2-6h4v4H5v-4z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-size {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M20.5%203l-.16.03L15%205.1%209%203%203.36%204.9c-.21.07-.36.25-.36.48V20.5c0%20.28.22.5.5.5l.16-.03L9%2018.9l6%202.1%205.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15%2019l-6-2.11V5l6%202.11V19z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-modinfo {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-6h2v6zm0-8h-2V7h2v2z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-safe {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%201L3%205v6c0%205.55%203.84%2010.74%209%2012%205.16-1.26%209-6.45%209-12V5l-9-4zm0%2010.99h7c-.53%204.12-3.28%207.79-7%208.94V12H5V6.3l7-3.11v8.8z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+        }
+        
+        .mod-app-premium-icon-playstore {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2014%2014%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cg%20id%3D%22play-store%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%3E%3Cpath%20fill%3D%22%238b5cf6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M0.352234%201.30517c0%20-0.02479%200.000988%20-0.04926%200.002925%20-0.07341L5.98441%206.86101%200.355106%2012.4903c-0.001902%20-0.0239%20-0.002872%20-0.0482%20-0.002872%20-0.0727V1.30517ZM1.60955%2013.3572c0.10087%20-0.0192%200.20138%20-0.0528%200.29879%20-0.1023L8.851%209.7276%207.04507%207.92167%201.60955%2013.3572Zm6.49618%20-6.49619%202.15197%202.15193%202.5867%20-1.31423c0.7183%20-0.36496%200.7183%20-1.30972%200%20-1.67468l-2.5872%20-1.31447%20-2.15147%202.15145Zm0.7448%20-2.86612L1.90834%200.46783c-0.09712%20-0.049343%20-0.19733%20-0.082887%20-0.2979%20-0.102107L7.04507%205.80035l1.80546%20-1.80546Z%22%20clip-rule%3D%22evenodd%22%20opacity%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E&#39;);
+
+        }
+        
+        /* Clickable Boxes */
+        .mod-app-premium-clickable {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mod-app-premium-clickable:hover {
+            background-color: #f0f5ff;
+        }
+        
+        /* Information Content */
+        .mod-app-premium-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mod-app-premium-content b {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .mod-app-premium-content span {
+            font-size: 17px;
+            color: #1e293b;
+            font-weight: 500;
+        }
+        
+        /* Mod Features FAQ Section */
+        .mod-app-premium-features {
+            padding: 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .mod-app-premium-features-header {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background-color: #faf9ff;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mod-app-premium-features-header:hover {
+            background-color: #f5f3ff;
+        }
+        
+        .mod-app-premium-features-title {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #8b5cf6;
+        }
+        
+        .mod-app-premium-features-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%25238b5cf6%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%2017.27L18.18%2021l-1.64-7.03L22%209.24l-7.19-.61L12%202%209.19%208.63%202%209.24l5.46%204.73L5.82%2021z%22%20fill%3D%22%238b5cf6%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .mod-app-premium-features-toggle {
+            font-size: 18px;
+            color: #8b5cf6;
+            transition: transform 0.3s ease;
+        }
+        
+        .mod-app-premium-features-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            background-color: #fefdff;
+        }
+        
+        .mod-app-premium-features-content.active {
+            padding: 25px 30px;
+            max-height: 500px;
+        }
+        
+        .mod-app-premium-feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .mod-app-premium-feature-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .mod-app-premium-feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 12px;
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .mod-app-premium-feature-pro {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%252310b981%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm-2%2015l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z%22%20fill%3D%22%2310b981%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+            background-color: #d1fae5;
+        }
+        
+        .mod-app-premium-feature-ads {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2523f59e0b%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M20%206h-8l-2-2H4c-1.1%200-1.99.9-1.99%202L2%2018c0%201.1.9%202%202%202h16c1.1%200%202-.9%202-2V8c0-1.1-.9-2-2-2zm0%2012H4V6h5.17l2%202H20v10zm-2-6H6v-2h12v2zm-4%204H6v-2h8v2z%22%20fill%3D%22%23f59e0b%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+            background-color: #fef3c7;
+        }
+        
+        .mod-app-premium-feature-warning {
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2523ef4444%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-2h2v2zm0-4h-2V7h2v6z%22%20fill%3D%22%23ef4444%22%20opacity%3D%221%22%2F%3E%3C%2Fsvg%3E&#39;);
+            background-color: #fee2e2;
+        }
+        
+        .mod-app-premium-feature-text {
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        /* Button Section */
+        .mod-app-premium-button-section {
+            padding: 35px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            background: linear-gradient(to bottom, #fefdff, #faf9ff);
+        }
+        
+        /* Download Button */
+        .mod-app-premium-download-button {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            min-width: 240px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mod-app-premium-download-button::before {
+            content: &quot;&quot;;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .mod-app-premium-download-button:hover::before {
+            left: 100%;
+        }
+        
+        .mod-app-premium-download-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        .mod-app-premium-download-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2014%2014%22%20id%3D%22Download-Tray--Streamline-Flex-Remix%22%20height%3D%2214%22%20width%3D%2214%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%0A%20%20%3Cdesc%3E%0A%20%20%20%20Download%20Tray%20Streamline%20Icon%3A%20https%3A%2F%2Fstreamlinehq.com%0A%20%20%3C%2Fdesc%3E%0A%20%20%3Cg%20id%3D%22download-tray--arrow-bottom-down-download-internet-network-server-upload%22%3E%0A%20%20%20%20%3Cpath%20id%3D%22Union%22%20fill%3D%22%23ffffff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.06942%200.25c-0.34518%200%20-0.625%200.279822%20-0.625%200.625l-0.00001%204.30088H3.90896c-0.21661%200%20-0.41777%200.11216%20-0.53165%200.29642%20-0.11388%200.18426%20-0.12424%200.41434%20-0.02736%200.60809%200.69273%201.38546%202.05532%202.74806%203.44084%203.44079%200.17596%200.08797%200.38306%200.08797%200.55902%20-0.00001%201.38541%20-0.69273%202.74799%20-2.05532%203.44069%20-3.44078%200.0969%20-0.19375%200.0866%20-0.42383%20-0.0273%20-0.60809%20-0.1139%20-0.18426%20-0.3151%20-0.29642%20-0.5317%20-0.29642H7.69441L7.69442%200.875c0%20-0.345178%20-0.27983%20-0.625%20-0.625%20-0.625ZM1.99456%209.87719c-0.05421%20-0.4802%20-0.48743%20-0.82553%20-0.96763%20-0.77133%20-0.480203%200.05421%20-0.825537%200.48744%20-0.771328%200.96764%200.099429%200.8808%200.494325%201.7019%201.120298%202.3295%200.62597%200.6275%201.44608%201.0245%202.32662%201.1262l0.00284%200.0003c1.04899%200.1176%202.15515%200.2214%203.29473%200.2214%201.13955%200%202.24666%20-0.1038%203.29481%20-0.2214l0.0028%20-0.0003c0.8805%20-0.1017%201.7006%20-0.4987%202.3266%20-1.1262%200.6259%20-0.6276%201.0208%20-1.4487%201.1203%20-2.3295%200.0542%20-0.4802%20-0.2912%20-0.91343%20-0.7714%20-0.96764%20-0.4802%20-0.0542%20-0.9134%200.29113%20-0.9676%200.77133%20-0.055%200.48771%20-0.2737%200.94241%20-0.6203%201.28991%20-0.3464%200.3472%20-0.8%200.5669%20-1.2871%200.6235%20-1.03094%200.1157%20-2.05936%200.2103%20-3.09811%200.2103%20-1.03872%200%20-2.06613%20-0.0946%20-3.09816%20-0.2103%20-0.48709%20-0.0566%20-0.94071%20-0.2763%20-1.28703%20-0.6235%20-0.34662%20-0.3475%20-0.56529%20-0.8022%20-0.62034%20-1.28991Z%22%20clip-rule%3D%22evenodd%22%20opacity%3D%221%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E&#39;);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        /* Play Store Button */
+        .mod-app-premium-playstore-button {
+            background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(52, 168, 83, 0.3);
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mod-app-premium-playstore-button::before {
+            content: &quot;&quot;;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .mod-app-premium-playstore-button:hover::before {
+            left: 100%;
+        }
+        
+        .mod-app-premium-playstore-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 168, 83, 0.4);
+        }
+        
+        .mod-app-premium-playstore-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background-image: url(&#39;data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2014%2014%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%3Cg%20id%3D%22play-store%22%20fill%3D%22%23ffffff%22%20opacity%3D%221%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M0.352234%201.30517c0%20-0.02479%200.000988%20-0.04926%200.002925%20-0.07341L5.98441%206.86101%200.355106%2012.4903c-0.001902%20-0.0239%20-0.002872%20-0.0482%20-0.002872%20-0.0727V1.30517ZM1.60955%2013.3572c0.10087%20-0.0192%200.20138%20-0.0528%200.29879%20-0.1023L8.851%209.7276%207.04507%207.92167%201.60955%2013.3572Zm6.49618%20-6.49619%202.15197%202.15193%202.5867%20-1.31423c0.7183%20-0.36496%200.7183%20-1.30972%200%20-1.67468l-2.5872%20-1.31447%20-2.15147%202.15145Zm0.7448%20-2.86612L1.90834%200.46783c-0.09712%20-0.049343%20-0.19733%20-0.082887%20-0.2979%20-0.102107L7.04507%205.80035l1.80546%20-1.80546Z%22%20clip-rule%3D%22evenodd%22%20opacity%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E&#39;);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        /* Skeleton Loading Animation */
+        .mod-app-premium-skeleton {
+            animation: skeleton-loading 1.5s infinite ease-in-out;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            border-radius: 4px;
+        }
+        
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .mod-app-premium-skeleton-text {
+            height: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .mod-app-premium-skeleton-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin-right: 20px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mod-app-premium-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mod-app-premium-box {
+                border-right: none;
+            }
+            
+            .mod-app-premium-button-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .mod-app-premium-download-button, .mod-app-premium-playstore-button {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .mod-app-premium-title {
+                font-size: 26px;
+            }
+            
+            .mod-app-premium-subtitle {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mod-app-premium-title {
+                font-size: 22px;
+            }
+            
+            .mod-app-premium-content b {
+                font-size: 13px;
+            }
+            
+            .mod-app-premium-content span {
+                font-size: 15px;
+            }
+            
+            .mod-app-premium-download-button {
+                font-size: 16px;
+                padding: 16px 30px;
+            }
+            
+            .mod-app-premium-box {
+                padding: 15px 20px;
+            }
+            
+            .mod-app-premium-features-header {
+                padding: 15px 20px;
+            }
+            
+            .mod-app-premium-features-content.active {
+                padding: 20px;
+            }
+            
+            .mod-app-premium-button-section {
+                padding: 25px 20px;
+            }
+        }
