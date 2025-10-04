@@ -1,0 +1,57 @@
+<!-- ✅ Basic SEO Meta Tags -->
+<meta name="description" content="Shimul ModZ – Free Premium Apps & MOD APK Store. 100% Safe & Virus-Free Downloader. Explore patched & modded apps, games & tools – fast, secure & easy!"/>
+<meta name="keywords" content="MOD APK, Premium APK, Android MOD, shimul modz, #shimulmodz"/>
+<meta name="author" content="Shimul RE"/>
+<meta name="owner" content="Shimul RE"/>
+<meta name="robots" content="index, follow"/>
+<meta name="language" content="en"/>
+<meta name="distribution" content="global"/>
+<meta name="rating" content="general"/>
+<meta name="revisit-after" content="1 days"/>
+
+<!-- ✅ Canonical URL -->
+<link rel="canonical" href="https://shimulmodz.blogspot.com/"/>
+
+<!-- ✅ Open Graph (Facebook, Messenger, WhatsApp) -->
+<meta property="og:title" content="Shimul ModZ"/>
+<meta property="og:description" content="Free Premium Apps & MOD APK Store. 100% Safe & Virus-Free Downloader. Explore patched & modded apps, games & tools – fast, secure & easy!"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://shimulmodz.blogspot.com/"/>
+<meta property="og:site_name" content="Shimul ModZ"/>
+<meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCrlSHlNgg6wsCOBTKAd6dSy58szFWmcGbinzUo-SdRVN6KCE9xsrHAGnsPjjn5g3npWQKpTf9ku6cV_YADxywmLpviq-MJabO70S80e5rZDB0AZlVltVBujlMslByIf6vvDuGhLA4SuiQsTUR3ZK2TGjh7EF-QEo3PlutYPWNBcUzjSj1V_FHFKMfi5tO/s1600/favicon_shimulmodz.png"/>
+
+<!-- ✅ Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Shimul ModZ"/>
+<meta name="twitter:description" content="Free Premium Apps & MOD APK Store. 100% Safe & Virus-Free Downloader."/>
+<meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCrlSHlNgg6wsCOBTKAd6dSy58szFWmcGbinzUo-SdRVN6KCE9xsrHAGnsPjjn5g3npWQKpTf9ku6cV_YADxywmLpviq-MJabO70S80e5rZDB0AZlVltVBujlMslByIf6vvDuGhLA4SuiQsTUR3ZK2TGjh7EF-QEo3PlutYPWNBcUzjSj1V_FHFKMfi5tO/s1600/favicon_shimulmodz.png"/>
+
+<!-- ✅ Favicon -->
+<link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCrlSHlNgg6wsCOBTKAd6dSy58szFWmcGbinzUo-SdRVN6KCE9xsrHAGnsPjjn5g3npWQKpTf9ku6cV_YADxywmLpviq-MJabO70S80e5rZDB0AZlVltVBujlMslByIf6vvDuGhLA4SuiQsTUR3ZK2TGjh7EF-QEo3PlutYPWNBcUzjSj1V_FHFKMfi5tO/s1600/favicon_shimulmodz.png"/>
+
+<!-- ✅ Schema.org JSON-LD (Advanced SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Shimul ModZ",
+  "url": "https://shimulmodz.blogspot.com",
+  "description": "Shimul ModZ – Free Premium Apps & MOD APK Store. 100% Safe & Virus-Free Downloader. Explore patched & modded apps, games & tools – fast, secure & easy!",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Shimul RE",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCrlSHlNgg6wsCOBTKAd6dSy58szFWmcGbinzUo-SdRVN6KCE9xsrHAGnsPjjn5g3npWQKpTf9ku6cV_YADxywmLpviq-MJabO70S80e5rZDB0AZlVltVBujlMslByIf6vvDuGhLA4SuiQsTUR3ZK2TGjh7EF-QEo3PlutYPWNBcUzjSj1V_FHFKMfi5tO/s1600/favicon_shimulmodz.png"
+    }
+  },
+  "sameAs": [
+    "mailto:shimul.modz@gmail.com"
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://shimulmodz.blogspot.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
